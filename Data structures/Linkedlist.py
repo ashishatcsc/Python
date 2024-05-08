@@ -36,7 +36,7 @@ class LinkedList:
             if itr.data != data:
                 itr = itr.next
             else:
-                itr.
+                itr.next = self # This code is not correct. 
 
 
 
