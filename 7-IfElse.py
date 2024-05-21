@@ -13,16 +13,13 @@
 # 3. Returns the person who has the given rank.
 
 ranking = ['John', 'Sen', 'Lisa']
-rank = int(input("Please provide the rank number from 1 - 3 to see the Athelete"))
+rank = int(input("Please provide the rank number from 1 - 3 to see the Athelete: \t"))
 if rank > 3 or rank < 1:
     print("Please print rank between 1 to 3")
 else:
     print("The athelete on rank "+ str(rank) +" is:",ranking[rank-1])
 
-name = input("Please provide the Name to see the Athelete Rank")
-# if rank > 3 or rank < 1:
-#     print("Please print rank between 1 to 3")
-# else:
+name = input("Please provide the Athelete Name to see Rank:\t")
 print(ranking.index(name)+1)
 
 
