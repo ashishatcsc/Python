@@ -17,6 +17,13 @@ f = open("members.txt","w")
 f.writelines(existing_members)
 f.close()
 
+filenames = ['doc.txt', 'report.txt', 'presentation.txt']
+
+for filename in filenames:
+    file = open(filename, 'w')
+    file.write("Hello")
+    file.close()
+
 
 
 

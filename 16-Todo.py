@@ -1,17 +1,27 @@
-lst = []
+
 while True:
-    choice = input("Please select ToDo List operation to be performed - 'show','add','edit,'remove','exit'\n")
+    choice = input("Please select ToDo List operation to be performed - 'show','add','edit,'remove','complete','exit'\n").strip()
     match choice:
         case 'show':
-            if not lst:
-                print("No Todo item")
-            else:
-                n = 1
-                for i in lst:
-                    print(str(n) +". " + i)
-                    n += 1
+           file = open("todos.txt","r")
+           lst = file.readlines()
+           file.close()     
+           for index,item in enumerate(lst):
+                    row=f'{index+1}-{item}'
+                    print(row)
         case 'add':
-            lst.append(input("Enter Todo Item:"))
+            lstitem = input("Enter Todo Item:")
+
+            file = open("todos.txt","r")
+            lst = file.readlines()
+            file.close()
+
+            lst.append(lstitem)
+
+            file = open("todos.txt","w")
+            file.writelines(lst)
+            file.close()
+
         case 'remove':
             if not list:
                 print("There is no To-Do item to remove")
@@ -22,9 +32,16 @@ while True:
                 lst.remove(listvalue)
                 print("To-do Item Removed")
         case 'edit':
-                itemtoedit = int(input("Please enter item to edit"))
+                currentitem = enumerate(lst)
+                for index,val in currentitem:
+                     print(str(index+1) + "." + val)
+                itemtoedit = int(input("Please enter item number to be edited"))
                 newitem = input()
                 lst[itemtoedit-1] = newitem
+        case 'complete':
+              number = int(input("Please enter the item number to be marked as complete"))
+              itemcompleted = lst.pop(number-1)
+              print("Completed item is:",itemcompleted)        
         case 'exit':
                 break
 
