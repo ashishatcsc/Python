@@ -82,8 +82,45 @@ class LinkedList:
         while count < index-1:
             itr = itr.next
             count += 1
-        itr.next = itr.next.next    
-        
+        itr.next = itr.next.next  
+
+    def insert_after_value(self,value,data):
+
+        if self.head is None:
+            raise Exception("List is empty")
+                
+        count = 0   
+        found = False
+        itr = self.head
+        while itr:
+            if itr.data == value:
+                NodeToInsert = Node(data,itr.next)
+                itr.next = NodeToInsert
+                found = True
+                break
+            else:
+                itr = itr.next  
+        if found == False:
+            print("value povided is not in the list")
+
+    def remove_by_value(self,value):
+
+        if self.head is None:
+            raise Exception("List is empty")
+                
+        count = 0   
+        found = False
+        itr = self.head
+        while itr:
+            if itr.data == value:
+                self.remove_at(count)                
+                found = True
+                break
+            itr = itr.next
+            count += 1
+              
+        if found == False:
+            print("value povided is not in the list")
 
 if __name__ == "__main__":
     ll = LinkedList()
@@ -103,4 +140,10 @@ if __name__ == "__main__":
     ll.print()
     ll.insert_at(0,"Linked list practice")
     ll.print()
+    ll.insert_after_value("Ashish","Vinaychand")
+    ll.print()
+    ll.remove_by_value("good")
+    ll.print()
+    ll.insert_after_value("abc","def")
+    ll.remove_by_value("def")
     
