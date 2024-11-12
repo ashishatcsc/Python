@@ -37,6 +37,10 @@ class LinkedList:
         if place < 0 or place > self.get_length():
             raise Exception ("Invalid Index") 
 
+        if place == 0:
+            self.insert_at_begining(data) 
+            return 
+        
         count = 0   
         itr = self.head
         while itr:
@@ -96,5 +100,7 @@ if __name__ == "__main__":
     ll.print()
     print("Length of the list is:", ll.get_length())
     ll.remove_at(2)
+    ll.print()
+    ll.insert_at(0,"Linked list practice")
     ll.print()
     
