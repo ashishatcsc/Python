@@ -25,6 +25,28 @@ for filename in filenames:
     file.close()
 
 
+filea = open("a.txt","r")   
+print(filea.read()) 
+filea.close()
+
+fileb = open("b.txt","r")   
+print(fileb.read()) 
+fileb.close()
+
+filec = open("c.txt","r")   
+print(filec.read()) 
+filec.close()
+
+
+filenames = ['a.txt', 'b.txt', 'c.txt']
+
+for filename in filenames:
+    file = open(filename, 'r')
+    content = file.read()
+    print(content)
+    file.close()
+
+
 
 
 
